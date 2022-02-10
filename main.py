@@ -23,12 +23,13 @@ def home():
         subprocess_out = subprocess.Popen("./darknet detect " + config, shell=True, stdout=subprocess.PIPE)
         subprocess_return = subprocess_out.stdout.read()
         print(subprocess_return)
+        path_to_display = os.path.join("../static", image_file.filename)
 
         subprocess_out.wait()
 
-        os.replace("predictions.jpg", path_to_save)
+        os.replace("predictions.jpg", path_to_display)
 
-        return render_template("index.html", user_image=path_to_save, exe_output=subprocess_return)
+        return render_template("index.html", user_image=path_to_display, exe_output=subprocess_return)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9999, debug=True)
