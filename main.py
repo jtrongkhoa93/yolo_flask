@@ -29,7 +29,7 @@ def home():
 
         os.replace("predictions.jpg", os.path.join("static", image_file.filename))
 
-        count_of_person = subprocess_return.count("\\nperson")
+        count_of_person = str(subprocess_return).count("\\nperson")
 
         return render_template("index.html", user_image=path_to_display, exe_output=count_of_person)
 
