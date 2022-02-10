@@ -23,7 +23,13 @@ aria-describedby="inputGroupFileAddon04" aria-label="Upload">
 </form>
 </div>
 
+<div class = 'result_part'>
+    {% if user_image %}
+        <img style="max-width:500px; border-radius:1rem" src="{{user_image}}"
+             alt="User Image">
+    {% endif %}
 
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -63,7 +69,19 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-  console.log(response);
+  $("body")
+.append(
+    $("<div>")
+    .append(
+        $("<div>")
+        .append(
+            $("<h1>").text(title)
+        )
+    )
+    .append(
+        $("<div>").text(content)
+    )
+);
 });
 
 });

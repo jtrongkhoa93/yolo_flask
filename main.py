@@ -15,7 +15,8 @@ def home():
         image_file = request.files['image']
         path_to_save = os.path.join(app.config['UPLOAD_FOLDER'], image_file.filename)
         image_file.save(path_to_save)
-        return "Image uploaded"
+        prediction_img = "/darknet/predictions.jpg"
+        return render_template("index.html", user_image = prediction_img)
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port=9999, debug=True)
