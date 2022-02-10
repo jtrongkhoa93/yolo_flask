@@ -16,7 +16,7 @@ def home():
     else:
         image_file_name = request.files['image'].filename
         path_to_save = os.path.join(app.config['UPLOAD_FOLDER'], image_file_name)
-        config = "cfg/yolov4.cfg yolov4.weights " + path_to_save
+        config = "../cfg/yolov4.cfg ../yolov4.weights " + path_to_save
         # subprocess.call("../darknet detect -config " + config)
         subprocess_out = subprocess.Popen("../darknet detect -config " + config, shell=True, stdout=subprocess.PIPE)
         subprocess_return = subprocess_out.stdout.read()
@@ -24,7 +24,7 @@ def home():
 
         subprocess_out.wait()
 
-        os.replace("predictions.jpg", path_to_save)
+        os.replace("../predictions.jpg", path_to_save)
 
         return render_template("index.html", user_image=path_to_save, exe_output=subprocess_return)
 
