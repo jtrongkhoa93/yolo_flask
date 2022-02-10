@@ -17,9 +17,9 @@ def home():
         image_file_name = request.files['image'].filename
         # path_to_save = os.path.join(app.config['UPLOAD_FOLDER'], image_file_name)
         path_to_save = os.path.join("../data", image_file_name)
-        config = "../cfg/yolov4.cfg ../yolov4.weights " + path_to_save
+        config = "cfg/yolov4.cfg yolov4.weights " + path_to_save
         # subprocess.call("../darknet detect -config " + config)
-        subprocess_out = subprocess.Popen("../darknet detect -config " + config, shell=True, stdout=subprocess.PIPE)
+        subprocess_out = subprocess.Popen("./darknet detect -config " + config, shell=True, stdout=subprocess.PIPE)
         subprocess_return = subprocess_out.stdout.read()
         print(subprocess_return)
 
