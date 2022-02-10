@@ -29,7 +29,9 @@ def home():
 
         os.replace("predictions.jpg", os.path.join("static", image_file.filename))
 
-        return render_template("index.html", user_image=path_to_display, exe_output=subprocess_return)
+        count_of_person = subprocess_return.count("\\nperson")
+
+        return render_template("index.html", user_image=path_to_display, exe_output=count_of_person)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9999, debug=True)
