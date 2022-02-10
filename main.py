@@ -27,7 +27,7 @@ def home():
 
         subprocess_out.wait()
 
-        os.replace("predictions.jpg", path_to_display)
+        os.replace("predictions.jpg", os.path.join("static", image_file.filename))
 
         return render_template("index.html", user_image=path_to_display, exe_output=subprocess_return)
 
