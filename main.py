@@ -6,6 +6,7 @@ from flask_cors import CORS, cross_origin
 import colorama
 import os
 import logging
+import time
 
 app = Flask(__name__)
 
@@ -43,7 +44,8 @@ def home():
 
 
 def app_logger(person_count, image_name, image_size):
-    logging.basicConfig(filename="app_log",
+    timestr = time.strftime("%Y%m%d")
+    logging.basicConfig(filename="app_log/app_log_" + timestr,
                         filemode='a',
                         format='%(asctime)s %(name)s %(levelname)s %(message)s',
                         datefmt="%Y-%m-%d %H:%M:%S",
