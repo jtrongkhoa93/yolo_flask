@@ -63,5 +63,13 @@ def app_logger(person_count, image_name, image_size):
     logger.info("%i - %s - %.2f" % (person_count, image_name, image_size))
 
 
+@app.route("/log", methods=['POST'])
+def get_log():
+    timestr = time.strftime("%Y%m%d")
+    with app.open_resource('app_log/app_log_' + timestr) as f:
+        contents = f.read()
+    return contents
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9999, debug=True)

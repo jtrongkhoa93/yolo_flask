@@ -1,0 +1,11 @@
+
+.circleci/config.yml
+.github/FUNDING.yml
+.github/FUNDING.yml
+.github/ISSUE_TEMPLATE/bug-report.md
+.github/ISSUE_TEMPLATE/training-issue---no-detections---nan-avg-loss---low-accuracy.md
+.github/ISSUE_TEMPLATE/feature_request.md
+.github/workflows/ccpp.yml
+.github/workflows/on_pr.yml
+.github/ISSUE_TEMPLATE/any-other-question-or-issue.md
+.github/workflows/rebase.yml
