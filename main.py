@@ -50,7 +50,8 @@ def app_logger(person_count, image_name, image_size):
     logging.basicConfig(filename=log_filename,
                         filemode='a',
                         format='%(asctime)s %(name)s %(levelname)s %(message)s',
-                        datefmt="%Y-%m-%d %H:%M:%S")
+                        datefmt="%Y-%m-%d %H:%M:%S",
+                        level=logging.INFO)
 
     logger = logging.getLogger("yolo_app")
 
