@@ -41,7 +41,7 @@ aria-describedby="inputGroupFileAddon04" aria-label="Upload">
 
 </div>
 
-<button id="show_log" type="button" class="btn btn-light">Light</button>
+<button id="show_log" type="button" class="btn btn-light">Show today log</button>
 <div id = "log_content"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
@@ -60,7 +60,7 @@ $("form#files").submit(function () {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://192.168.1.4:9999",
+      "url": "http://165.227.84.175:9999/",
       "method": "POST",
       "headers": {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ $("button#show_log").click(function(e) {
     e.preventDefault();
     $.ajax({
         type: "POST",
-        url: "http://192.168.1.4:9999/log",
+        url: "http://165.227.84.175:9999/log",
         success: function(data) {
             $('#log_content').html(data);
         }

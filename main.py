@@ -60,7 +60,7 @@ def app_logger(person_count, image_name, image_size):
 
     logger.addHandler(file_handler)
 
-    logger.info("%i - %s - %.2f" % (person_count, image_name, image_size))
+    # logger.info("%i - %s - %.2f" % (person_count, image_name, image_size))
 
 
 @app.route("/log", methods=['POST'])
