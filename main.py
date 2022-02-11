@@ -45,13 +45,20 @@ def home():
 
 def app_logger(person_count, image_name, image_size):
     timestr = time.strftime("%Y%m%d")
-    logging.basicConfig(filename="app_log/app_log_" + timestr,
+    log_filename = "app_log/app_log_" + timestr
+    os.makedirs(os.path.dirname(log_filename), exist_ok=True)
+    logging.basicConfig(filename=log_filename,
                         filemode='a',
                         format='%(asctime)s %(name)s %(levelname)s %(message)s',
                         datefmt="%Y-%m-%d %H:%M:%S",
                         level=logging.INFO)
 
     logger = logging.getLogger("yolo_app")
+
+    file_handler = logging.FileHandler(log_filename, mode="a", encoding=None, delay=False)
+    file_handler.setLevel(level=logging.DEBUG)
+
+    logger.addHandler(file_handler)
 
     logger.info("%i - %s - %.2f" % (person_count, image_name, image_size))
 
