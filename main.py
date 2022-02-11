@@ -55,7 +55,7 @@ def app_logger(person_count, image_name, image_size):
     logger = logging.getLogger("yolo_app")
 
     file_handler = logging.FileHandler(log_filename, mode="a", encoding=None, delay=False)
-    file_handler.setLevel(level=logging.DEBUG)
+    file_handler.setLevel(level=logging.INFO)
 
     logger.addHandler(file_handler)
 
