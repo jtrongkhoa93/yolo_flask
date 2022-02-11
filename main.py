@@ -65,9 +65,12 @@ def app_logger(person_count, image_name, image_size):
 
 @app.route("/log", methods=['POST'])
 def get_log():
-    timestr = time.strftime("%Y%m%d")
-    with app.open_resource('app_log/app_log_' + timestr) as f:
-        contents = f.read()
+    log_file_path = 'app_log/app_log_' + time.strftime("%Y%m%d")
+    if os.path.isfile(log_file_path):
+        with app.open_resource(log_file_path) as f:
+            contents = f.read()
+    else:
+        contents = "No log for today"
     return contents
 
 
